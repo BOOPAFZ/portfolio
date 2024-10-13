@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Nav from './components/Nav';
 import HomePage from './components/HomePage';
-import Contact from './components/ContactMe';
 import Footer from './components/Footer';
 import Education from './components/Education';
 import Portfolio from './components/Portfolio';
+import AboutMe from './components/AboutMe';
+import ContactMe from './components/ContactMe';
 
 
 
