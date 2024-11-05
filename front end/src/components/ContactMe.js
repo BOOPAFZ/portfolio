@@ -52,15 +52,35 @@ const ContactMe = () => {
     return Object.keys(err).length < 1;
   };
 
-  const onSubmitHandler = (event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
     console.table(formData);
-
+  
     let isValid = validateForm();
     if (isValid) {
-      alert('Message Sent');
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/contacts/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+  
+        if (response.ok) {
+          console.log('Data saved successfully');
+          alert('Message Sent');
+        } else {
+          console.error('Error saving data');
+          alert('Failed to send message');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred');
+      }
     }
   };
+  
 
   useEffect(() => {
     // Apply style change initially
