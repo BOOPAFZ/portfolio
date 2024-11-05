@@ -1,395 +1,442 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-*{
+/* Global Reset */
+* {
     font-family: "Nunito", sans-serif;
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    outline: none; border: none;
+    outline: none;
+    border: none;
     text-transform: capitalize;
     transition: all .2s linear;
+  }
+  
+*::selection {
+  background: darkmagenta;
+  color: black;
 }
 
-*::selection{
-    background:darkmagenta;
-    color: black;
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
 }
 
-html{
-    font-size: 62.5%;
-    overflow-x: hidden;
+html::-webkit-scrollbar {
+  width: 1.4rem;
 }
 
-html::-webkit-scrollbar{
-    width: 1.4rem;
+html::-webkit-scrollbar-track {
+  background: #222;
 }
 
-html::-webkit-scrollbar-track{
-    background: #222;
-}
-html::-webkit-scrollbar-thumb{
-    background: darkmagenta;
+html::-webkit-scrollbar-thumb {
+  background: darkmagenta;
 }
 
-body{
-    background: #111;
-    overflow: hidden;
-    padding-left: 35rem;
+body {
+  background: #111;
+  overflow: hidden;
+  padding-left: 35rem;
 }
 
-section{
-    min-height: 100vh;
-    padding: 1rem;
-    
-}
-.btn{
-    padding: .7rem 3rem;
-    background: #333;
-    color: #fff;
-    cursor: pointer;
-    margin-top: 1rem;
-    font-size: 2rem;
-    border-radius: 5rem
-}
-.btn i{
-    padding: 0 .5rem;
-    font-size: 1.8rem;
-}
-.btn:hover{
-    background:darkmagenta ;
+section {
+  min-height: 100vh;
+  padding: 1rem;
 }
 
-.heading{
-    text-align: center;
-    margin: 0 6rem;
-    font-size: 4rem;
-    padding: 1rem;
-    border-bottom: 1rem solid #fff4;
-    color: #fff;
-}
-.heading span{
-    color: darkmagenta;
-}
-header{
-    position: fixed;
-    top: 0; left: 0;
-    z-index: 1000;
-    height: 100%;
-    width: 35rem;
-    background: #1a1a1a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: column;
-    text-align: center;
+/* Button Styles */
+.btn {
+  padding: .7rem 3rem;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 2rem;
+  border-radius: 5rem;
 }
 
-header .user img{
-    height: 17rem;
-    width: 17rem;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
-    border: 0.7rem solid darkmagenta;
+.btn i {
+  padding: 0 .5rem;
+  font-size: 1.8rem;
 }
 
-header .user .name{
-    font-size: 3.5rem;
-    color: aliceblue;
-}
-header .user .post{
-    font-size: 2rem;
-    color: azure;
-}
-header .navbar{
-    width: 100%;
+.btn:hover {
+  background: darkmagenta;
 }
 
-header .navbar ul{
-    list-style: none;
-    padding: 1rem 3rem;
+/* Heading Styles */
+.heading {
+  text-align: center;
+  margin: 0 6rem;
+  font-size: 4rem;
+  padding: 1rem;
+  border-bottom: 1rem solid #fff4;
+  color: #fff;
 }
 
-header .navbar ul li a{
-    display: block;
-    padding: 1rem;
-    margin: 1.5rem 0;
-    background: #333;
-    color: beige;
-    border-radius: 5rem;
+.heading span {
+  color: darkmagenta;
 }
 
-header .navbar ul li a:hover{
-    background: darkmagenta;
-}
-#menu{
-    position: fixed;
-    top: 2rem; right: 2rem;
-    background: #333;
-    color: aliceblue;
-    cursor: pointer;
-    font-size: 2.5rem;
-    padding: 1rem 1.5rem;
-    z-index: 1000;
-    display: none;
-}
-
-.home{
-    display: flex;
-    justify-content: center;
-    flex-flow: column;
-    padding: 0 15rem;
-
+/* Header Styles */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100%;
+  width: 35rem;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  text-align: center;
 }
 
-.home h3{
-    font-size: 2.5rem;
-    color: #fff;
+header .user img {
+  height: 17rem;
+  width: 17rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 0.7rem solid darkmagenta;
 }
 
-.home h1{
-    font-size: 5rem;
-    color: #fff;
+header .user .name {
+  font-size: 3.5rem;
+  color: aliceblue;
 }
 
-.home h1 span{
-    color: darkmagenta;
+header .user .post {
+  font-size: 2rem;
+  color: azure;
 }
 
-.home p{
-    font-size: 2rem;
-    color: #eee;
-    padding: 1rem 0;
+header .navbar {
+  width: 100%;
 }
 
-
-.about .row{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 1rem 0; 
+header .navbar ul {
+  list-style: none;
+  padding: 1rem 3rem;
 }
 
-.about .row .info{
-    flex: 1 1 48rem;
-    padding: 2rem 1rem;
-    padding-left: 6rem;
-    
+header .navbar ul li a {
+  display: block;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  background: #333;
+  color: beige;
+  border-radius: 5rem;
 }
 
-.about .row .info h3{
-    font-size: 2rem;
-    color: darkmagenta;
-    padding: 1rem 0;
-    font-weight: normal;
+header .navbar ul li a:hover {
+  background: darkmagenta;
 }
 
-.about .row .info h3 span{
-    color: #fff;
+#menu {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background: #333;
+  color: aliceblue;
+  cursor: pointer;
+  font-size: 2.5rem;
+  padding: 1rem 1.5rem;
+  z-index: 1000;
+  display: none;
 }
 
-.about .row .counter{
-    flex: 1 1 48rem;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.home {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  padding: 0 15rem;
 }
 
-.about .row .counter .box{
-    width: 20rem;
-    background: #222;
-    text-align: center;
-    padding: 2rem;
-    margin: 2rem;
+.home h3 {
+  font-size: 2.5rem;
+  color: #fff;
 }
 
-.about .row .counter .box span{
-    font-size: 4rem;
-    color: darkmagenta;
+.home h1 {
+  font-size: 5rem;
+  color: #fff;
 }
 
-.about .row .counter .box h3{
-    font-size: 2rem;
-    color: #fff;
+.home h1 span {
+  color: darkmagenta;
 }
 
-.education .box-container{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
-    padding-left: 3rem;
+.home p {
+  font-size: 2rem;
+  color: #eee;
+  padding: 1rem 0;
 }
 
-.education .box-container .box{
-    width: 27rem;
-    margin: 4rem 1rem;
-    padding-left: 4rem;
-    border-left: 0.2rem solid #fff;
-    position: relative;
+/* About Section */
+.about .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1rem 0;
 }
 
-.education .box-container .box span{
-    font-size: 1.3rem;
-    background: #222;
-    color: #fff;
-    border-radius: 5rem;
-    padding: .5rem 2.5rem;
+.about .row .info {
+  flex: 1 1 48rem;
+  padding: 2rem 1rem;
+  padding-left: 6rem;
 }
 
-.education .box-container .box h3{
-    font-size: 2rem;
-    color: #fff;
-    padding-top: 1.5rem;
-
+.about .row .info h3 {
+  font-size: 2rem;
+  color: darkmagenta;
+  padding: 1rem 0;
+  font-weight: normal;
 }
 
-.education .box-container .box p{
-    font-size: 1.4rem;
-    color: #eee;
-    padding: 1rem 0;
+.about .row .info h3 span {
+  color: #fff;
 }
 
-.education .box-container .box i{
-    position: absolute;
-    top: -1.5rem; left: -2.5rem;
-    height: 5rem;
-    width: 5rem;
-    border-radius: 50%;
-    line-height: 5rem;
-    text-align: center;
-    font-size: 2rem;
-    color: #fff;
-    background: darkmagenta;
+.about .row .counter {
+  flex: 1 1 48rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
- 
+
+.about .row .counter .box {
+  width: 20rem;
+  background: #222;
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem;
+}
+
+.about .row .counter .box span {
+  font-size: 4rem;
+  color: darkmagenta;
+}
+
+.about .row .counter .box h3 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+/* Education Section */
+.education .box-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  padding-left: 3rem;
+}
+
+.education .box-container .box {
+  width: 27rem;
+  margin: 4rem 1rem;
+  padding-left: 4rem;
+  border-left: 0.2rem solid #fff;
+  position: relative;
+}
+
+.education .box-container .box span {
+  font-size: 1.3rem;
+  background: #222;
+  color: #fff;
+  border-radius: 5rem;
+  padding: .5rem 2.5rem;
+}
+
+.education .box-container .box h3 {
+  font-size: 2rem;
+  color: #fff;
+  padding-top: 1.5rem;
+}
+
+.education .box-container .box p {
+  font-size: 1.4rem;
+  color: #eee;
+  padding: 1rem 0;
+}
+
+.education .box-container .box i {
+  position: absolute;
+  top: -1.5rem;
+  left: -2.5rem;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  line-height: 5rem;
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  background: darkmagenta;
+}
+
 /* Portfolio Section */
 .portfolio .box-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 2rem 0;
 }
 
 .portfolio .box-container .box {
-    height: 20rem;
-    width: 26rem;
-    border-radius: 1rem;
-    margin: 2rem;
-    overflow: hidden;
-    cursor: pointer;
+  height: 20rem;
+  width: 26rem;
+  border-radius: 1rem;
+  margin: 2rem;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .portfolio .box-container .box img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .portfolio .box-container .box:hover img {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 /* Contact Section */
 .contact .row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .contact .row .content {
-    flex: 1 1 30rem;
-    padding: 4rem;
-    padding-bottom: 0;
+  flex: 1 1 30rem;
+  padding: 4rem;
+  padding-bottom: 0;
 }
 
 .contact .row form {
-    flex: 1 1 45rem;
-    padding: 2rem;
-    margin: 2rem;
-    margin-bottom: 4rem;
+  flex: 1 1 45rem;
+  padding: 2rem;
+  margin: 2rem;
+  margin-bottom: 4rem;
 }
 
 .contact .row form .box,
 .contact .row form .PhoneInput input[type="tel"],
 .contact .row form .PhoneInput input[type="text"],
 .contact .row form .PhoneInput .form-control .flag-dropdown {
-    padding: 1.5rem;
-    margin: 1rem 0;
-    background-color: #3d3d3d33;
-    color: #fff;
-    text-transform: none;
-    font-size: 1.7rem;
-    width: 100%;
-    border: none;
-    border-radius: 0;
-    outline: none;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background-color: #3d3d3d33;
+  color: #fff;
+  text-transform: none;
+  font-size: 1.7rem;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  outline: none;
 }
 
 .contact .row form .box::placeholder,
 .contact .row form .PhoneInput input::placeholder,
 .contact .row form .PhoneInput .form-control::placeholder {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .contact .row form .message {
-    height: 15rem;
-    resize: none;
+  height: 15rem;
+  resize: none;
 }
 
 .contact .row .content .title {
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 3rem;
-    padding-bottom: 2rem;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 3rem;
+  padding-bottom: 2rem;
 }
 
 .contact .row .content .info h3 {
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-    color: #eee;
-    padding: 1rem 0;
-    font-weight: normal;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  color: #eee;
+  padding: 1rem 0;
+  font-weight: normal;
 }
 
 .contact .row .content .info h3 i {
-    padding-right: 1rem;
+  padding-right: 1rem;
+  color: darkmagenta;
+}
+
+
+.box:focus {
+    background-color: darkmagenta;  /* Dark magenta when focused */
+    border-color: #fff;  /* Add a white border when focused */
+    outline: none;  /* Remove outline */
+  }
+  
+  /* Optional: Style the options inside the dropdown */
+  .box option {
+    background-color: #3d3d3d;  /* Set background color for each option */
+    color: #fff;  /* White text color for options */
+    font-size: 1.6rem;  /* Option text size */
+    padding: 10px;  /* Padding inside each option */
+  }
+  
+  /* Hover effect for options */
+  .box option:hover {
+    background-color: darkmagenta;  /* Change background on hover */
+    color: #fff;  /* Ensure the text stays white */
+  }
+
+
+
+/* PhoneInput Custom Styles */
+.react-tel-input .flag-dropdown {
+    background-color: #111;
+}
+.react-tel-input .flag-dropdown:hover {
+    background-color: darkmagenta;
+}
+
+
+.react-tel-input .country-list {
+    color: #fff;
+    outline: none;
+    z-index: 1;
+    list-style: none;
+    position: absolute;
+    padding: 0;
+    padding-right: 20%;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.35);
+    background-color: #333;
+    width: 300px;
+    max-height: 200px;
+    overflow-y: scroll;
+    border-radius: 0 0 3px 3px;
+}
+
+.react-tel-input .country-list .country {
     color: darkmagenta;
+    
 }
 
-/* Ensure correct specificity for phone input */
-.PhoneInput .flag-dropdown .selected-flag {
-    background-color: #3d3d3d33 !important;
-    border: none !important;
-    padding: 5px !important;
-    border-radius: 5px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+
+.react-tel-input .country-list .country:hover,
+.react-tel-input .country-list .country:focus {
+    color: rgb(47, 52, 59);
+    background-color: rgb(29, 37, 36);
 }
 
-.PhoneInput .flag-dropdown .selected-flag:hover {
-    background-color: #555555 !important;
-}
 
-.PhoneInput .country-list {
-    background-color: #3d3d3d33 !important;
-    color: #fff !important;
-}
-
-.PhoneInput .country-list .country {
-    color: #fff !important;
-}
-
-.PhoneInput .country-list .country:hover,
-.PhoneInput .country-list .country:focus {
-    background-color: #555555 !important;
-    color: #fff !important;
-}
 
 
 @media (max-width:1200px) {

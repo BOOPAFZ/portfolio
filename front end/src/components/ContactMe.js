@@ -23,14 +23,6 @@ const ContactMe = () => {
 
   const handleFlagChange = (value, country) => {
     setFormData({ ...formData, phone: value, country: country.name });
-
-    // Apply style change with a slight delay to ensure rendering
-    setTimeout(() => {
-      const flagElement = document.querySelector('.selected-flag');
-      if (flagElement) {
-        flagElement.style.backgroundColor = '#3d3d3d33'; // or any desired color
-      }
-    }, 100); // Delay in milliseconds
   };
 
   const validateForm = () => {
@@ -67,7 +59,6 @@ const ContactMe = () => {
     let isValid = validateForm();
     if (isValid) {
       alert('Message Sent');
-      // Further logic to handle form submission, like sending the data to an API
     }
   };
 
@@ -118,17 +109,16 @@ const ContactMe = () => {
           />
           <span className="error-message">{formError.country}</span>
 
-          {formData.country && (
-            <div className="phone-input">
-              <PhoneInput
-                country={formData.country.toLowerCase()}
-                value={formData.phone}
-                onChange={handleFlagChange}
-                inputClass="box"
-              />
-              <span className="error-message">{formError.phone}</span>
-            </div>
-          )}
+          {/* Always show the phone input */}
+          <div className="phone-input">
+            <PhoneInput
+              country={formData.country.toLowerCase() || 'us'}  // default to 'us' if no country selected
+              value={formData.phone}
+              onChange={handleFlagChange}
+              inputClass="box"
+            />
+            <span className="error-message">{formError.phone}</span>
+          </div>
 
           <textarea
             name="message"
