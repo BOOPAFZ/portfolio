@@ -59,7 +59,7 @@ const ContactMe = () => {
     let isValid = validateForm();
     if (isValid) {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/contacts/', {
+        const response = await fetch('http://209.38.4.201/:8000/api/contacts/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
