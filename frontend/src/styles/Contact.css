@@ -1,0 +1,128 @@
+.contact .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .contact .row .content {
+    flex: 1 1 30rem;
+    padding: 4rem;
+    padding-bottom: 0;
+  }
+  
+  .contact .row form {
+    flex: 1 1 45rem;
+    padding: 2rem;
+    margin: 2rem;
+    margin-bottom: 4rem;
+  }
+  
+  .contact .row form .box,
+  .contact .row form .PhoneInput input[type="tel"],
+  .contact .row form .PhoneInput input[type="text"],
+  .contact .row form .PhoneInput .form-control .flag-dropdown {
+    padding: 1.5rem;
+    margin: 1rem 0;
+    background-color: #3d3d3d33;
+    color: #fff;
+    text-transform: none;
+    font-size: 1.7rem;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    outline: none;
+  }
+  
+  .contact .row form .box::placeholder,
+  .contact .row form .PhoneInput input::placeholder,
+  .contact .row form .PhoneInput .form-control::placeholder {
+    text-transform: capitalize;
+  }
+  
+  .contact .row form .message {
+    height: 15rem;
+    resize: none;
+  }
+  
+  .contact .row .content .title {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 3rem;
+    padding-bottom: 2rem;
+  }
+  
+  .contact .row .content .info h3 {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: #eee;
+    padding: 1rem 0;
+    font-weight: normal;
+  }
+  
+  .contact .row .content .info h3 i {
+    padding-right: 1rem;
+    color: darkmagenta;
+  }
+  
+  
+  .box:focus {
+      background-color: darkmagenta;  /* Dark magenta when focused */
+      border-color: #fff;  /* Add a white border when focused */
+      outline: none;  /* Remove outline */
+    }
+    
+    /* Optional: Style the options inside the dropdown */
+    .box option {
+      background-color: #3d3d3d;  /* Set background color for each option */
+      color: #fff;  /* White text color for options */
+      font-size: 1.6rem;  /* Option text size */
+      padding: 10px;  /* Padding inside each option */
+    }
+    
+    /* Hover effect for options */
+    .box option:hover {
+      background-color: darkmagenta;  /* Change background on hover */
+      color: #fff;  /* Ensure the text stays white */
+    }
+  
+  
+  
+  /* PhoneInput Custom Styles */
+  .react-tel-input .flag-dropdown {
+      background-color: #111;
+  }
+  .react-tel-input .flag-dropdown:hover {
+      background-color: darkmagenta;
+  }
+  
+  
+  .react-tel-input .country-list {
+      color: #fff;
+      outline: none;
+      z-index: 1;
+      list-style: none;
+      position: absolute;
+      padding: 0;
+      padding-right: 20%;
+      box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.35);
+      background-color: #333;
+      width: 300px;
+      max-height: 200px;
+      overflow-y: scroll;
+      border-radius: 0 0 3px 3px;
+  }
+  
+  .react-tel-input .country-list .country {
+      color: darkmagenta;
+      
+  }
+  
+  
+  .react-tel-input .country-list .country:hover,
+  .react-tel-input .country-list .country:focus {
+      color: rgb(47, 52, 59);
+      background-color: rgb(29, 37, 36);
+  }
+  
