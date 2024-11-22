@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2';
 import { CountryDropdown } from 'react-country-region-selector';
-import '../styles/Contact.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import '../styles/Contact.css';
 
 const ContactMe = () => {
   const [formData, setFormData] = useState({
@@ -28,88 +30,94 @@ const ContactMe = () => {
 
   const validateForm = () => {
     let err = {};
-    if (formData.name === '') {
-      err.name = '* Name required!';
+    if (formData.name.trim() === '') {
+      err.name = 'Please enter your name.';
     }
-    if (formData.email === '') {
-      err.email = '* Email required!';
+    if (formData.email.trim() === '') {
+      err.email = 'Please enter your email.';
     } else {
-      const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-      if (!regex.test(formData.email)) {
-        err.email = 'Email not valid!';
+      const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (!emailRegex.test(formData.email)) {
+        err.email = 'Please provide a valid email.';
       }
     }
-    if (formData.country === '') {
-      err.country = '* Country required!';
+    if (formData.country.trim() === '') {
+      err.country = 'Select your country.';
     }
-    if (formData.phone === '') {
-      err.phone = '* Phone number required!';
+    if (formData.phone.trim() === '') {
+      err.phone = 'Enter your phone number.';
     }
-    if (formData.message === '') {
-      err.message = '* Message required!';
+    if (formData.message.trim() === '') {
+      err.message = 'Please leave a message.';
     }
 
     setFormError({ ...err });
-    return Object.keys(err).length < 1;
+    return Object.keys(err).length === 0;
   };
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
-    console.table(formData);
-  
-    let isValid = validateForm();
-    if (isValid) {
-      try {
-        const response = await fetch('http://209.38.4.201/:8000/api/contacts/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-  
-        if (response.ok) {
-          console.log('Data saved successfully');
-          alert('Message Sent');
-        } else {
-          console.error('Error saving data');
-          alert('Failed to send message');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred');
+
+    if (!validateForm()) {
+      toast.error('Please fix the errors and try again.');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://209.38.4.201/:8000/api/contacts/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast.success('Message sent successfully!');
+        setFormData({ name: '', email: '', country: '', phone: '', message: '' });
+      } else {
+        toast.error('Failed to send your message. Please try again.');
       }
+    } catch (error) {
+      toast.error('An error occurred. Please try again later.');
     }
   };
-  
 
   useEffect(() => {
-    // Apply style change initially
     const flagElement = document.querySelector('.selected-flag');
     if (flagElement) {
-      flagElement.style.backgroundColor = '#3d3d3d33'; // or any desired color
+      flagElement.style.backgroundColor = '#3d3d3d33';
     }
   }, [formData.country]);
 
   return (
     <section className="contact" id="contact">
-      <h1 className="heading">Contact <span>Me</span></h1>
+      <h1 className="heading">
+        Contact <span>Me</span>
+      </h1>
       <div className="row">
         <div className="content">
           <h3 className="title">Contact Info</h3>
           <div className="info">
-            <h3><i className="fas fa-envelope"></i> afz@bakhsouss.com</h3>
-            <h3><i className="fas fa-phone"></i> (929)-521-2930</h3>
-            <h3><i className="fas fa-phone"></i> BOOPAFZ</h3>
-            <h3><i className="fas fa-map-marker-alt"></i> Queens, New York 11373</h3>
+            <h3>
+              <i className="fas fa-envelope"></i> afz@bakhsouss.com
+            </h3>
+            <h3>
+              <i className="fas fa-phone"></i> (929)-521-2930
+            </h3>
+            <h3>
+              <i className="fas fa-phone"></i> BOOPAFZ
+            </h3>
+            <h3>
+              <i className="fas fa-map-marker-alt"></i> Queens, New York 11373
+            </h3>
           </div>
         </div>
-        <form onSubmit={onSubmitHandler}>
+        <form onSubmit={onSubmitHandler} className="contact-form">
           <input
             type="text"
             name="name"
+            value={formData.name}
             placeholder="Name"
-            className="box"
+            className={`box ${formError.name ? 'error-border' : ''}`}
             onChange={onChangeHandler}
           />
           <span className="error-message">{formError.name}</span>
@@ -117,8 +125,9 @@ const ContactMe = () => {
           <input
             type="email"
             name="email"
+            value={formData.email}
             placeholder="Email"
-            className="box"
+            className={`box ${formError.email ? 'error-border' : ''}`}
             onChange={onChangeHandler}
           />
           <span className="error-message">{formError.email}</span>
@@ -126,27 +135,27 @@ const ContactMe = () => {
           <CountryDropdown
             value={formData.country}
             onChange={(val) => setFormData({ ...formData, country: val })}
-            className="box"
+            className={`box ${formError.country ? 'error-border' : ''}`}
           />
           <span className="error-message">{formError.country}</span>
 
-          {/* Always show the phone input */}
           <div className="phone-input">
             <PhoneInput
-              country={formData.country.toLowerCase() || 'us'}  // default to 'us' if no country selected
+              country={formData.country.toLowerCase() || 'us'}
               value={formData.phone}
               onChange={handleFlagChange}
-              inputClass="box"
+              inputClass={`box ${formError.phone ? 'error-border' : ''}`}
             />
             <span className="error-message">{formError.phone}</span>
           </div>
 
           <textarea
             name="message"
+            value={formData.message}
             cols="30"
             rows="10"
-            className="box message"
             placeholder="Message"
+            className={`box message ${formError.message ? 'error-border' : ''}`}
             onChange={onChangeHandler}
           ></textarea>
           <span className="error-message">{formError.message}</span>
@@ -156,6 +165,7 @@ const ContactMe = () => {
           </button>
         </form>
       </div>
+      <ToastContainer />
     </section>
   );
 };

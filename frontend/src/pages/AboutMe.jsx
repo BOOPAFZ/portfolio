@@ -1,43 +1,52 @@
 import React from 'react';
-import '../styles/AboutMe.css'
+import '../styles/AboutMe.css';
 
 const AboutMe = () => {
-  return (<>
-  
+  return (
     <section className="about" id="about">
-      <h1 className="heading"><span>about</span> me </h1>
+      <h1 className="heading">
+        <span>About</span> Me
+      </h1>
       <div className="row">
+        {/* Info Section */}
         <div className="info">
-          <h3><span>name :</span> Ahmed Bakhsouss</h3>
-          <h3><span>age :</span> 24</h3>
-          <h3><span>qualification :</span> na</h3>
-          <h3><span>post :</span> software engineer</h3>
-          <h3><span>language :</span> arabic</h3>
-          <a href="#">
-            <button className="btn">download Resume <i className="fas fa-download"></i></button>
+          <h3>
+            <span>Name:</span> Ahmed Bakhsouss
+          </h3>
+          <h3>
+            <span>Age:</span> 24
+          </h3>
+          <h3>
+            <span>Qualification:</span> Bachelor's in Software Engineering
+          </h3>
+          <h3>
+            <span>Role:</span> Front-End Developer
+          </h3>
+          <h3>
+            <span>Languages:</span> Arabic, English
+          </h3>
+          <a href="/resume.pdf" download="Ahmed_Bakhsouss_Resume">
+            <button className="btn">
+              Download Resume <i className="fas fa-download"></i>
+            </button>
           </a>
         </div>
+        {/* Counter Section */}
         <div className="counter">
-          <div className="box">
-            <span>2+</span>
-            <h3>years of experience</h3>
-          </div>
-          <div className="box">
-            <span>3+</span>
-            <h3>project completed</h3>
-          </div>
-          <div className="box">
-            <span>3+</span>
-            <h3>project completed</h3>
-          </div>
-          <div className="box">
-            <span>3+</span>
-            <h3>project completed</h3>
-          </div>
+          {[
+            { count: "2+", label: "Years of Experience" },
+            { count: "5+", label: "Completed Projects" },
+            { count: "3+", label: "Happy Clients" },
+            { count: "4+", label: "Certifications Earned" },
+          ].map((item, index) => (
+            <div className="box" key={index}>
+              <span>{item.count}</span>
+              <h3>{item.label}</h3>
+            </div>
+          ))}
         </div>
       </div>
     </section>
-    </>
   );
 };
 

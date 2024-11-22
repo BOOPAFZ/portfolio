@@ -1,49 +1,84 @@
+.education {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.education .heading {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  color: #fff;
+}
+
+.education .heading span {
+  color: #ff416c;
+}
+
 .education .box-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 0;
-    padding-left: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.education .box {
+  background: #34495e;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.education .box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.education .box .fas {
+  font-size: 3rem;
+  color: #ff416c;
+  margin-bottom: 1rem;
+}
+
+.education .box .date {
+  font-size: 1.4rem;
+  color: #bdc3c7;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.education .box h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.education .box p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #bdc3c7;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .education .heading {
+    font-size: 2.5rem;
   }
-  
-  .education .box-container .box {
-    width: 27rem;
-    margin: 4rem 1rem;
-    padding-left: 4rem;
-    border-left: 0.2rem solid #fff;
-    position: relative;
+
+  .education .box {
+    padding: 1.5rem;
   }
-  
-  .education .box-container .box span {
-    font-size: 1.3rem;
-    background: #222;
-    color: #fff;
-    border-radius: 5rem;
-    padding: .5rem 2.5rem;
+
+  .education .box h3 {
+    font-size: 1.8rem;
   }
-  
-  .education .box-container .box h3 {
-    font-size: 2rem;
-    color: #fff;
-    padding-top: 1.5rem;
-  }
-  
-  .education .box-container .box p {
+
+  .education .box p {
     font-size: 1.4rem;
-    color: #eee;
-    padding: 1rem 0;
   }
-  
-  .education .box-container .box i {
-    position: absolute;
-    top: -1.5rem;
-    left: -2.5rem;
-    height: 5rem;
-    width: 5rem;
-    border-radius: 50%;
-    line-height: 5rem;
-    text-align: center;
-    font-size: 2rem;
-    color: #fff;
-    background: darkmagenta;
-  }
+}
