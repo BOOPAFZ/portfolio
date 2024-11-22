@@ -55,7 +55,7 @@ const ContactMe = () => {
     return Object.keys(err).length === 0;
   };
 
-  const onSubmitHandler = async (event) => {
+  const onSubmitHandler = (event) => {
     event.preventDefault();
 
     if (!validateForm()) {
@@ -63,22 +63,9 @@ const ContactMe = () => {
       return;
     }
 
-    try {
-      const response = await fetch('http://209.38.4.201/:8000/api/contacts/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        toast.success('Message sent successfully!');
-        setFormData({ name: '', email: '', country: '', phone: '', message: '' });
-      } else {
-        toast.error('Failed to send your message. Please try again.');
-      }
-    } catch (error) {
-      toast.error('An error occurred. Please try again later.');
-    }
+    // Simulate successful form submission for now
+    toast.success('Message sent successfully!');
+    setFormData({ name: '', email: '', country: '', phone: '', message: '' });
   };
 
   useEffect(() => {
