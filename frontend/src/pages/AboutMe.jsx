@@ -17,10 +17,10 @@ const AboutMe = () => {
             <span>Age:</span> 24
           </h3>
           <h3>
-            <span>Qualification:</span> Bachelor's in Software Engineering
+            <span>Qualification:</span> Meta Back-End Developer Specialization, Full-Stack JavaScript
           </h3>
           <h3>
-            <span>Role:</span> Front-End Developer
+            <span>Role:</span> Software Engineer
           </h3>
           <h3>
             <span>Languages:</span> Arabic, English
