@@ -102,17 +102,20 @@ const ContactMe = () => {
           <h3 className="title">Contact Info</h3>
           <div className="info">
             <h3>
-              <i className="fas fa-envelope"></i> afz@bakhsouss.com
+              <i className="fas fa-envelope"></i> contact@ahmedbakhsous.com
             </h3>
             <h3>
               <i className="fas fa-phone"></i> (929)-521-2930
             </h3>
             <h3>
-              <i className="fas fa-phone"></i> BOOPAFZ
+              <i className="fab fa-linkedin"></i>
+              <a href="https://www.linkedin.com/in/ahmed-bakhsouss-244573204/" target="_blank" rel="noopener noreferrer">Ahmed Bakhsouss</a>
             </h3>
             <h3>
-              <i className="fas fa-map-marker-alt"></i> Queens, New York 11373
+              <i className="fab fa-github"></i>
+              <a href="https://github.com/BOOPAFZ" target="_blank" rel="noopener noreferrer">BOOPAFZ</a>
             </h3>
+            <h3><i className="fas fa-map-marker-alt"></i> Queens, New York 11373</h3>
           </div>
         </div>
         <form onSubmit={onSubmitHandler} className="contact-form">
